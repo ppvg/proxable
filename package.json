@@ -1,6 +1,6 @@
 {
   "name": "proxable",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Wrap functions to allow for direct spyability",
   "scripts": {
     "test": "tap test.js --cov"
