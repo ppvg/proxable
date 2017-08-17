@@ -1,0 +1,9 @@
+package-lock.json
+node_modules/
+
+proxable-*.tgz
+
+.nyc_output/
+*.swp
+*.swo
+*~

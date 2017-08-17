@@ -1,0 +1,16 @@
+{
+  "name": "proxable",
+  "version": "1.0.0",
+  "description": "Wrap functions to allow for direct spyability",
+  "scripts": {
+    "test": "tap test.js --cov"
+  },
+  "devDependencies": {
+    "tap": "^10.7.2"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "author": "Peter-Paul <mail@ppvg.nl>",
+  "license": "ISC"
+}
