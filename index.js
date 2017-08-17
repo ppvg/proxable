@@ -49,10 +49,11 @@ function installProxy (proxable, mapFn) {
   const fn = mapFn(proxable[ORIGINAL])
   if (typeof fn !== 'function') { throw new Error('Not a function') }
   proxable[PROXY] = fn
+  return fn
 }
 
 function installStub (proxable, stub) {
-  installProxy(
+  return installProxy(
     proxable,
     () => ((typeof stub === 'function') ? stub : () => stub)
   )

@@ -50,11 +50,16 @@ tap.test('installProxy', t => {
   }, /Not a function/, 'Invalid proxy')
   t.equal(proxable(), 'original')
 
-  installProxy(
+  var replacement
+  const result = installProxy(
     proxable,
-    original => () => `not ${original()}!`
+    original => {
+      replacement = () => `not ${original()}!`
+      return replacement
+    }
   )
   t.equal(proxable(), 'not original!')
+  t.equal(result, replacement, 'installProxy returns unproxied replacement function')
 
   t.end()
 })
@@ -68,11 +73,13 @@ tap.test('installStub', t => {
   }, /Not proxable/, 'Invalid target')
   t.equal(proxable(), 'original')
 
-  installStub(proxable, () => 'stub function')
-  t.equal(proxable(), 'stub function')
-
   installStub(proxable, 'stub value')
   t.equal(proxable(), 'stub value')
+
+  const stubFunc = () => 'stub function'
+  const result = installStub(proxable, stubFunc)
+  t.equal(proxable(), 'stub function')
+  t.equal(result, stubFunc, 'installStub returns unproxied replacement function')
 
   t.end()
 })
