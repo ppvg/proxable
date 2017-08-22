@@ -8,3 +8,5 @@ proxable-*.tgz
 *.swp
 *.swo
 *~
+
+.tmp/
