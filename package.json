@@ -6,6 +6,10 @@
     "test": "tap test.js --cov",
     "lint": "eslint ."
   },
+  "pre-commit": [
+    "test",
+    "lint"
+  ],
   "devDependencies": {
     "eslint": "^4.5.0",
     "eslint-config-standard": "^10.2.1",
@@ -13,6 +17,7 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "pre-commit": "^1.2.2",
     "tap": "^10.7.2"
   },
   "engines": {
