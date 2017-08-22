@@ -1,6 +1,6 @@
 {
   "name": "proxable",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Function wrapper for direct stubbing and spying",
   "scripts": {
     "test": "tap test.js --cov",
