@@ -1,6 +1,6 @@
 # Proxable
 
-Simple, unobtrosive function wrapper to allow for direct stubbing and spying.
+Simple, unobtrusive function wrapper to allow for direct stubbing and spying.
 This is useful when writing tests for code that declares its dependencies using
 object destructuring or ESM `import` statements.
 
@@ -13,7 +13,7 @@ production. This can be overruled by also setting `PROXABLE=true`.
 
 Takes a function `fn` to wrap (required).
 
-Returns a wrapped function that proxies throught to `fn` by default.
+Returns a wrapped function that proxies through to `fn` by default.
 
 _Aliases: `proxable()`, `create()`_
 
@@ -42,7 +42,7 @@ _Alias: `proxy()`_
 ### `restoreOriginal(proxable)`
 
 Takes a wrapped `proxable` function (required) and restores its original
-behaviour.
+behavior.
 
 _Alias: `restore()`_
 
@@ -75,7 +75,7 @@ const database = require('./database')
 sinon.stub(database, 'find')
 ```
 
-But this won't work, since `users.js` has a direct reference to the orignal,
+But this won't work, since `users.js` has a direct reference to the original,
 unstubbed `database.find`:
 
 ```js
