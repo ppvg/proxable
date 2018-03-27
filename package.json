@@ -25,5 +25,12 @@
   },
   "repository": "ppvg/proxable",
   "author": "Peter-Paul <mail@ppvg.nl>",
-  "license": "ISC"
+  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Bassim Huis",
+      "email": "bas080@hotmail.com",
+      "url": "https://github.com/bas080"
+    }
+  ]
 }
