@@ -44,10 +44,11 @@ function wrap (fn) {
 }
 
 function installProxy (proxable, mapFn) {
-  if (!proxable || !proxable[PROXABLE]) { throw new Error('Not proxable') }
-  if (typeof mapFn !== 'function') { throw new Error('Not a function') }
+  if (typeof proxable !== 'function') { throw new TypeError('proxable is not a function') }
+  if (!proxable[PROXABLE]) { throw new Error('Not proxable') }
+  if (typeof mapFn !== 'function') { throw new TypeError('mapFn is not a function') }
   const fn = mapFn(proxable[ORIGINAL])
-  if (typeof fn !== 'function') { throw new Error('Not a function') }
+  if (typeof fn !== 'function') { throw new TypeError('mapFn does not return a function') }
   proxable[PROXY] = fn
   return fn
 }
@@ -60,6 +61,7 @@ function installStub (proxable, stub) {
 }
 
 function restoreOriginal (proxable) {
-  if (!proxable || !proxable[PROXABLE]) { throw new Error('Not proxable') }
+  if (typeof proxable !== 'function') { throw new TypeError('proxable is not a function') }
+  if (!proxable[PROXABLE]) { throw new Error('Not proxable') }
   proxable[PROXY] = undefined
 }

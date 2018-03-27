@@ -39,7 +39,7 @@ tap.test('installProxy', t => {
       proxable,
       'not original?'
     )
-  }, /Not a function/, 'Invalid map function')
+  }, /mapFn is not a function/, 'Invalid map function')
   t.equal(proxable(), 'original')
 
   t.throws(() => {
@@ -47,10 +47,10 @@ tap.test('installProxy', t => {
       proxable,
       original => 'not original?'
     )
-  }, /Not a function/, 'Invalid proxy')
+  }, /mapFn does not return a function/, 'Invalid proxy')
   t.equal(proxable(), 'original')
 
-  var replacement
+  let replacement
   const result = installProxy(
     proxable,
     original => {
